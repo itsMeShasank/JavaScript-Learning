@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Cart Quantity</title>
+    </head>
+    <body>
+        <button onclick="showQuantity()">Show Cart</button>
+        <button onclick="addOneItem()">Add to Cart</button>
+        <button onclick="addTwoItems()">+2</button>
+        <button onclick="addThreeItems()">+3</button>
+        <button onclick="resetCart()">Reset Cart</button>
+        
+        <script>       
+            
+            let cartQuantity = 0;
+            function showQuantity() {
+                console.log(`cart Quantity: ${cartQuantity}`);
+            }
+            function addOneItem() {
+                cartQuantity = cartQuantity++;
+                console.log(`cart Quantity added one item : ${cartQuantity}`);
+            }
+            function addTwoItems() {
+                cartQuantity += 2;
+                console.log(`cart Quantity added 2 items: ${cartQuantity}`);
+            }
+            function addThreeItems() {
+                cartQuantity += 3;
+                console.log(`cart Quantity added 3 items: ${cartQuantity}`);
+
+            }
+            function resetCart() {
+                cartQuantity = 0;
+                console.log(`cart Quantity Reset: ${cartQuantity}`);
+            }
+
+
+
+        </script>
+    </body>
+</html>
