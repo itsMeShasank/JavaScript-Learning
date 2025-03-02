@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+
+        <button onclick="checkPossibility('Rock')">
+            Rock
+        </button>
+
+        <button onclick="checkPossibility('Paper')">
+            Paper
+        </button>
+        
+        <button onclick="checkPossibility('Scissors')">
+            Scissors
+        </button>
+
+        <button onclick="resetScore()">
+            Reset Score
+        </button>
+        
+        <script>
+            let Score = {};
+            if(localStorage.getItem('score') === null) {
+                score ={
+                    wins:0,
+                    lose:0,
+                    tie:0
+                }
+            }else {
+                score = JSON.parse(localStorage.getItem('score'));
+            }
+           
+          function resetScore() {
+            score.wins=0;
+            score.lose=0;
+            score.tie=0;
+            alert(`Now, Start the game again!!!`);
+            localStorage.removeItem('score');
+          }
+          function checkPossibility(userChoice) {
+            const randomNumber = Math.random();
+            let computerChoice='';
+            let result='';
+            if(randomNumber >= 0 && randomNumber < 1/3) {
+                computerChoice = 'Rock';
+            }else if(randomNumber >= 1/3 && randomNumber < 2/3) {
+                computerChoice = 'Paper';
+            }else if(randomNumber >= 2/3 && randomNumber <= 1) {
+                computerChoice = 'Scissors';
+            }
+            
+            switch(userChoice) {
+                case 'Rock':
+                        if(computerChoice === 'Rock') {
+                            result = 'Tie!!!';
+                        }else if(computerChoice === 'Paper') {
+                            result = 'You Lose.';
+                        }else {
+                            result = 'You Won!';
+                        }
+                    break;
+                case 'Paper':
+                        if(computerChoice === 'Paper') {
+                            result = 'Tie!!!';
+                        }else if(computerChoice === 'Rock') {
+                            result = 'You Won!';
+                        }else {
+                            result = 'You Lose.';
+                        }
+                    break;
+                case 'Scissors':
+                        if(computerChoice === 'Scissors') {
+                            result = 'Tie!!!';
+                        }else if(computerChoice === 'Paper') {
+                            result = 'You Won!';
+                        }else {
+                            result = 'You Lose.';
+                        }
+                    break;
+            }
+            if(result == 'You Won!') {
+                score.wins +=1;
+            }else if(result == 'You Lose.') {
+                score.lose +=1;
+            }else {
+                score.tie +=1;
+            }
+            localStorage.setItem('score',JSON.stringify(score));
+
+            alert(`You picked ${userChoice}, Computer picked ${computerChoice} => ${result}
+            ScoreBoard:
+             Wins: ${score.wins}, Loses: ${score.lose} and Ties: ${score.tie}`);
+          }
+
+        </script>
+    </body>
+</html>
