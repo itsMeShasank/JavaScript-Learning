@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>TODO List</title>
+       <style>
+            body {
+                font-family: Arial;
+            }
+         
+            .items-show, .todo-div {
+                display: grid;
+                grid-template-columns: 200px 150px 100px;
+                margin-bottom: 10px;
+                column-gap: 10px;
+                row-gap:10px;
+                align-items:center;
+            }  
+            .todo-input,.todo-date {
+                padding: 6px;
+                font-size: 15px;
+            }
+            .todo-div {
+                margin-bottom: 10px;
+                align-items: stretch;
+            }
+            .todo-button {
+                border: none;
+                background-color: green;
+                color:white;
+                font-size: 15px;
+                cursor: pointer;
+            }
+            .items-show button {
+                font-size: 15px;
+                background-color: darkred;
+                border: none;
+                color:white;
+                cursor: pointer;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+       </style>
+    </head>
+    <body>
+        <p>Todo List Practise 1</p>
+        <div class="todo-div">
+            <input placeholder="Todo Name" class="todo-input"/>
+        <input type="date" class="todo-date"/>
+        <button class="todo-button" onclick="addTodo()">Add</button>
+        </div>
+        <div class="items-show"></div>
+        <script src="scripts/11-todo-list.js"></script>
+    </body>
+</html>

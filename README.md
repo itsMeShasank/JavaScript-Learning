@@ -313,7 +313,46 @@ person = {
 delete person.age; => it will delete the property.
 
 In objects we can store several types of values, values can be number/floating numbers/objects or even we can store functions in it.
+Built in objects in Javascript:
+console,JSON,localStorage,Math and document
 
+----------------Shorthand Proerty & Shorthand Method---------------
+we can write property into the object in 2 different ways.
+1. 
+    let name = 'shasank';
+    const student = {
+        name:name
+    }
+
+2. 
+    let name = 'shasank';
+    const student = {
+        name
+    }
+we can write method into the object in 2 different ways.
+1. 
+    const student = {
+        name:name,
+        method: function method() {
+            console.log(name);
+        }
+    }
+2. 
+    const student = {
+        name
+        method() {
+            console.log(name);
+        }
+    }
+
+Destructing the object is nothing but extracting the  required properties into variables.
+example:
+const student = {
+    name:'shsank',
+    age:'23',
+    scrore:'90'
+}
+const {name,age} = student => this is called Destructing.
 
 student = {
     name:'shasank',
@@ -354,4 +393,118 @@ few methods to manage data in localstorage will listeed out below.
 2. localStorage.getItem('key');
 3. localStorage.removeItem('key');
 
+exercise-8
 
+
+-----------------------------DOM------------------------------------
+DOM stands for Document object Model
+
+which is nothing but we can access/manage the html elements from javascript code.
+for instance to change the entire HTML tags on body tag we use:
+* document.body.innerHTML='Changed';
+the above line changes entire appeareance of body tags.
+Note: document is an builtin object in javascript it have lot properties associated with it.
+for instance if we want to view particular HTML tag in body we use:
+* console.log(document.querySelector('button')) => it will prints the entire <button> tag in console
+for instance if we want to just print the innerHTML of button we use:
+* console.log(document.querySelector('button').innerHTML) => it will prints the message that prints in UI.
+for instnace if we want to update the message that appears in UI.
+* document.querySelector('button').innerHTML = 'Changed';
+
+we can access the html elements by its 'name' or we can access it with 'class name' because if we have multiple elements in body.
+for instance:
+<button class='another-button'>newOne</button>
+<script>
+    console.log(document.querySelector('.another-button'));
+    const buttonElement = document.querySelector('.another-button'); => it contains <button class='another-button'>newOne</button>
+</script>
+
+DOM combines HTML and JS together. DOM gives full control to JS to accessthe page.
+
+Note: 
+1. clicks,keydowns are called events.
+2. onClick, onkeydown are event Listeners.
+
+document object represents the webpage and window object represents the browser.
+
+exercise-10 mandatory exercise 
+
+
+
+--------------------------Arrays-------------------------------
+Arrays are heterogenous, can add any type of data in it.
+there are few properties and methods for Array
+1. splice() to remove elements -> arr.splice(startIndex,howManyElementsNeedToRemove);
+2. push() to add elements at last -> arr.push(number);
+3. length property to check the length of the array.
+some mote methods 
+shift()
+unshift()
+join()
+concat()
+slice()
+toString()
+toLocaleString()
+pop()
+reverse()
+sort()
+map()
+filter()
+forEach()
+exercise-11
+
+-------------------------Advanced Functions---------------------------------
+
+1. setTimeout() -> to run our function in future.
+first Parameter -> function/functionName
+second Parameter -> How long to wait in milliseconds 3000ms => 3 seconds
+this is an asynchronous code will not wait for code.
+example:
+setTimeout(function() {
+    console.log("Tme out")
+},3000);
+
+setTimeout(function1,3000);
+function function1() {
+    console.log("timeout");
+}
+
+2. setInterval() -> same like above method
+firstParameter -> function/functionName
+secondParameter -> milliseconds
+but this function keep runs for every 3000ms
+we have once way to stop the interval. every time the setInterval will return one id and if we able to pass that id to below mentioned method, it will stop.
+clearInterval(intervalId);
+
+example:
+
+intervalId = setInterval(function1,3000);
+function function1() {
+    console.log("timeout");
+}
+
+clearInterval(intervalId);
+Note: better the above code placed in coditional block
+
+
+arrowFunctions => 2 ways
+const arrowFunction = () => {
+    console.log('hi');
+};
+
+const arrowFunction = function() {
+    console.log('hi');
+};
+
+addEventListener() method for document object.
+we can add multiple eventListeners for one HTML tag.
+<button class="js-button">Save</button>
+<script>
+    const buttonElement = document.querySelector('.js-button');
+    const eventListener = () => {
+        console.log('saved');
+    };
+    document.addEventListener('click',eventListener);
+    //we can remove eventListener.
+    buttonElement.removeEventListener('click',eventListener);
+</script>
